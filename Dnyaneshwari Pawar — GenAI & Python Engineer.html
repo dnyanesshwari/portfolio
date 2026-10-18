@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dnyaneshwari Pawar — GenAI & Python Engineer</title>
+<meta name="description" content="GenAI engineer building RAG systems, LangGraph agents and FastAPI backends. Final-year B.Tech CSE (AI & ML).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf9;--surf:#fff;--ink:#16161a;--mut:#62626d;--line:#e4e4e7;--acc:#5b45e8;--acc2:#0e9f8e;--glow:rgba(91,69,232,.12);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0b10;--surf:#14141b;--ink:#f1f1f5;--mut:#9a9aa8;--line:#25252f;--acc:#8b7bff;--acc2:#3dd6c3;--glow:rgba(139,123,255,.16);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b0b10;--surf:#14141b;--ink:#f1f1f5;--mut:#9a9aa8;--line:#25252f;--acc:#8b7bff;--acc2:#3dd6c3;--glow:rgba(139,123,255,.16);color-scheme:dark}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;transition:background .3s,color .3s}
+a{color:inherit;text-decoration:none}
+.mono{font-family:"JetBrains Mono",ui-monospace,Consolas,monospace}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--bg)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-weight:800;letter-spacing:-.02em}.logo b{color:var(--acc)}
+.links{display:flex;gap:22px;align-items:center;font-size:14px;color:var(--mut)}
+.links a:hover{color:var(--ink)}
+.tbtn{border:1px solid var(--line);background:var(--surf);color:var(--ink);width:38px;height:38px;border-radius:10px;cursor:pointer;font-size:16px}
+@media(max-width:720px){.links a.h{display:none}}
+section{padding:84px 0 20px}
+.eyebrow{font:500 12px "JetBrains Mono",monospace;color:var(--acc);letter-spacing:.14em;text-transform:uppercase}
+h2{font-size:clamp(26px,4vw,36px);letter-spacing:-.03em;margin:8px 0 28px;line-height:1.15}
+.hero{padding-top:70px}
+.hero h1{font-size:clamp(38px,7vw,68px);letter-spacing:-.04em;line-height:1.05;margin:14px 0 14px;font-weight:800}
+.grad{background:linear-gradient(100deg,var(--acc),var(--acc2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-size:clamp(18px,2.6vw,24px);color:var(--mut);min-height:1.6em}
+.role b{color:var(--ink)}.caret{display:inline-block;width:2px;height:1em;background:var(--acc);margin-left:3px;vertical-align:-2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.lead{max-width:640px;color:var(--mut);margin:18px 0 26px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{padding:12px 20px;border-radius:12px;font-weight:600;font-size:15px;border:1px solid var(--line);background:var(--surf);cursor:pointer;color:var(--ink);transition:transform .15s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--glow)}
+.btn.p{background:var(--acc);border-color:var(--acc);color:#fff}
+.heroGrid{display:grid;grid-template-columns:1.15fr .85fr;gap:36px;align-items:center}
+@media(max-width:860px){.heroGrid{grid-template-columns:1fr}}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:16px}
+.term{overflow:hidden;box-shadow:0 20px 50px var(--glow)}
+.tbar{display:flex;gap:6px;align-items:center;padding:10px 14px;border-bottom:1px solid var(--line);font-size:12px;color:var(--mut)}
+.tbar i{width:10px;height:10px;border-radius:50%;background:var(--line)}
+.tbody{padding:14px;font-size:13px;min-height:196px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.chip{border:1px solid var(--line);background:transparent;color:var(--ink);border-radius:999px;padding:6px 12px;font:500 12px "JetBrains Mono",monospace;cursor:pointer}
+.chip:hover,.chip.on{border-color:var(--acc);color:var(--acc);background:var(--glow)}
+.out div{margin:3px 0;opacity:0;animation:up .35s forwards}
+@keyframes up{from{transform:translateY(5px)}to{opacity:1;transform:none}}
+.k{color:var(--acc2)}.v{color:var(--acc)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:54px}
+@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:18px}.stat b{font-size:32px;letter-spacing:-.03em;display:block}.stat span{font-size:13px;color:var(--mut)}
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:30px}
+@media(max-width:800px){.about{grid-template-columns:1fr}}
+.about p{margin:0 0 14px;color:var(--mut)}.about p b{color:var(--ink)}
+.edu{padding:18px}.edu div{padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}.edu div:last-child{border:0}.edu small{color:var(--mut);display:block}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.sk{padding:18px}.sk h3{margin:0 0 10px;font-size:13px;color:var(--acc);font-family:"JetBrains Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
+.tag{display:inline-block;font-size:13px;padding:4px 10px;margin:0 6px 6px 0;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px}
+.proj{padding:22px;display:flex;flex-direction:column;transition:transform .2s,border-color .2s,box-shadow .2s}
+.proj:hover{transform:translateY(-4px);border-color:var(--acc);box-shadow:0 14px 34px var(--glow)}
+.proj.hide{display:none}
+.proj .top{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--mut)}
+.proj h3{margin:10px 0 6px;font-size:19px;letter-spacing:-.02em}
+.proj p{margin:0 0 12px;color:var(--mut);font-size:14.5px}
+.proj ul{margin:0 0 14px;padding-left:18px;font-size:14px;color:var(--mut);display:none}
+.proj.open ul{display:block}
+.proj .stack{margin-top:auto}
+.proj .stack span{font:500 11.5px "JetBrains Mono",monospace;color:var(--acc);margin-right:10px;display:inline-block}
+.pl{display:flex;gap:14px;margin-top:14px;font-size:14px;font-weight:600}
+.pl a{color:var(--acc)}.pl a:hover{text-decoration:underline}
+.more{background:none;border:0;color:var(--mut);cursor:pointer;font:500 13px Inter,sans-serif;padding:0 0 12px;text-align:left}
+.tl{border-left:2px solid var(--line);margin-left:6px}
+.ti{position:relative;padding:0 0 24px 24px}.ti::before{content:"";position:absolute;left:-7px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--acc);box-shadow:0 0 0 4px var(--glow)}
+.ti b{display:block}.ti small{color:var(--mut)}.ti p{margin:4px 0 0;color:var(--mut);font-size:14.5px}
+.cta{padding:44px 26px;text-align:center;margin:40px 0 20px;background:linear-gradient(135deg,var(--glow),transparent)}
+.cta h2{margin-top:0}
+footer{padding:30px 0 40px;color:var(--mut);font-size:13px;text-align:center}
+.rv{opacity:0;transform:translateY(18px);transition:opacity .6s,transform .6s}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+ <a href="#top" class="logo">dnyaneshwari<b>.</b>ai</a>
+ <div class="links"><a class="h" href="#about">About</a><a class="h" href="#skills">Stack</a><a href="#work">Work</a><a class="h" href="#path">Path</a><a href="#contact">Contact</a>
+ <button class="tbtn" id="tg" aria-label="Toggle light and dark theme">◐</button></div>
+</div></nav>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+ <div class="heroGrid">
+  <div>
+   <div class="eyebrow">Open to GenAI / Python roles · 2027 graduate</div>
+   <h1>I build <span class="grad">LLM agents</span> that ship.</h1>
+   <div class="role mono"><b id="ty"></b><span class="caret"></span></div>
+   <p class="lead">Final-year B.Tech (CSE – AI & ML). I turn LLMs into reliable products: RAG with citations, tool-routing agents, voice-enabled assistants and FastAPI backends, plus time-series forecasting for a real dairy cooperative.</p>
+   <div class="btns"><a class="btn p" href="#work">See projects</a><a class="btn" href="https://github.com/dnyanesshwari" target="_blank" rel="noopener">GitHub ↗</a><a class="btn" href="#contact">Hire me</a></div>
+  </div>
+  <div class="card term">
+   <div class="tbar mono"><i></i><i></i><i></i>&nbsp;agent_router.py — try it</div>
+   <div class="tbody mono">
+    <div class="chips" id="chips">
+     <button class="chip on" data-q="0">EMI ₹5L · 8% · 5y</button>
+     <button class="chip" data-q="1">RBI KYC rules?</button>
+     <button class="chip" data-q="2">Both in one prompt</button>
+    </div>
+    <div class="out" id="out"></div>
+   </div>
+  </div>
+ </div>
+ <div class="stats">
+  <div class="card stat rv"><b data-n="5">0</b><span>LLM / agent products built</span></div>
+  <div class="card stat rv"><b data-n="2">0</b><span>Hackathon results (2nd prize, finalist)</span></div>
+  <div class="card stat rv"><b data-n="31000" data-s="+">0</b><span>Teams registered in the Meta PyTorch hackathon</span></div>
+  <div class="card stat rv"><b data-n="1">0</b><span>Research paper (TA-RAG)</span></div>
+ </div>
+</div></section>
+
+<section id="about"><div class="wrap rv">
+ <div class="eyebrow">01 · About</div><h2>Engineer first, researcher by habit.</h2>
+ <div class="about">
+  <div>
+   <p>I focus on the part of GenAI that is hard: making answers <b>grounded, verifiable and safe to ship</b>. That means retrieval with source citations, abstaining when the evidence isn’t there, deterministic tools for anything numeric, and APIs that hold up under real users.</p>
+   <p>My work spans <b>RAG, LangGraph agents, Gemini / Groq LLMs, FastAPI, PostgreSQL + pgvector and React</b>. Alongside, I co-authored <b>TA-RAG</b>, a paper on statement-level confidence calibration to cut hallucination in regulatory knowledge systems.</p>
+   <p>I’ve also worked with an industry partner: a dairy cooperative where I shipped scheduling automation and a festival-aware demand forecaster, so I’m used to messy data and real stakeholders.</p>
+  </div>
+  <div class="card edu">
+   <div><b>B.Tech, CSE (AI & ML)</b><small>Rajarambapu Institute of Technology, Sangli · 2023–2027</small><small>CGPA 8.13 · Minor: Robotics & Automation</small></div>
+   <div><b>HSC</b><small>Shivaji Junior College, Vaduj · 76.67%</small></div>
+   <div><b>SSC</b><small>Sadguru Manajibaba Vidyalay, Palashi · 94%</small></div>
+   <div><b>Google Developers Group</b><small>Member</small></div>
+  </div>
+ </div>
+</div></section>
+
+<section id="skills"><div class="wrap rv">
+ <div class="eyebrow">02 · Stack</div><h2>What I build with.</h2>
+ <div class="skills">
+  <div class="card sk"><h3>GenAI &amp; Agents</h3><span class="tag">RAG</span><span class="tag">LangGraph</span><span class="tag">LangChain</span><span class="tag">Gemini API</span><span class="tag">Groq</span><span class="tag">Prompt engineering</span><span class="tag">Citations &amp; abstention</span><span class="tag">Multi-agent systems</span></div>
+  <div class="card sk"><h3>Backend &amp; Data</h3><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Flask</span><span class="tag">REST APIs</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">FAISS</span><span class="tag">MySQL</span><span class="tag">SQLAlchemy</span></div>
+  <div class="card sk"><h3>ML &amp; Forecasting</h3><span class="tag">Prophet</span><span class="tag">SARIMAX</span><span class="tag">XGBoost</span><span class="tag">Pandas</span><span class="tag">Scikit-learn</span><span class="tag">Reinforcement learning</span></div>
+  <div class="card sk"><h3>Frontend &amp; Tools</h3><span class="tag">React</span><span class="tag">TypeScript</span><span class="tag">Streamlit</span><span class="tag">Docker</span><span class="tag">Git / GitHub</span><span class="tag">Power BI (basic)</span></div>
+  <div class="card sk"><h3>Core CS</h3><span class="tag">DSA</span><span class="tag">OOP</span><span class="tag">DBMS</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">SQL</span></div>
+ </div>
+</div></section>
+
+<section id="work"><div class="wrap rv">
+ <div class="eyebrow">03 · Projects</div><h2>Selected work.</h2>
+ <div class="filters" id="filters">
+  <button class="chip on" data-f="all">All</button><button class="chip" data-f="genai">GenAI</button><button class="chip" data-f="agents">Agents</button><button class="chip" data-f="rag">RAG</button><button class="chip" data-f="ml">Forecasting / ML</button><button class="chip" data-f="rl">RL</button>
+ </div>
+ <div class="pgrid">
+  <article class="card proj" data-t="genai agents rag">
+   <div class="top"><span class="mono">FLAGSHIP · 2026</span><span>Voice + RAG</span></div>
+   <h3>OmniAssist AI</h3>
+   <p>Omnichannel support assistant for a home-services business: answers grounded in company documents, with citations, bookings and human handoff.</p>
+   <button class="more">Details +</button>
+   <ul><li>RAG over service, FAQ and policy docs with source snippets; abstains when nothing relevant is found.</li><li>Appointment flow: availability, propose, confirm, cancel; token-based auth and conversation history.</li><li>Human-agent handoff, voice interaction UI, admin analytics endpoint.</li></ul>
+   <div class="stack"><span>FastAPI</span><span>React</span><span>TypeScript</span><span>PostgreSQL</span><span>pgvector</span><span>Gemini</span><span>LangGraph</span></div>
+   <div class="pl"><a href="https://github.com/dnyanesshwari/OmniAssist-AI" target="_blank" rel="noopener">Code ↗</a></div>
+  </article>
+  <article class="card proj" data-t="genai agents rag">
+   <div class="top"><span class="mono">LIVE · 2026</span><span>Tool-routing agent</span></div>
+   <h3>FinanceAI</h3>
+   <p>A financial co-pilot that routes each question to the right tool: deterministic calculators, regulation retrieval or LLM planning, and shows the route used.</p>
+   <button class="more">Details +</button>
+   <ul><li>EMI, simple and compound interest computed by code, never by LLM arithmetic.</li><li>Combined prompts: calculate first, retrieve context second, then synthesize one answer.</li><li>Auth, chat history, calculator modals, light/dark theme, debug route for agent state.</li></ul>
+   <div class="stack"><span>Python</span><span>FastAPI</span><span>Groq</span><span>RAG</span><span>FAISS</span><span>React</span></div>
+   <div class="pl"><a href="https://financeai-7.onrender.com/" target="_blank" rel="noopener">Live demo ↗</a><a href="https://github.com/dnyanesshwari/FinanceAI" target="_blank" rel="noopener">Code ↗</a></div>
+  </article>
+  <article class="card proj" data-t="agents genai">
+   <div class="top"><span class="mono">2026</span><span>Multi-agent</span></div>
+   <h3>Autonomous AI Interviewer</h3>
+   <p>Multi-agent interview platform built on LangGraph and the Gemini API, with a coding sandbox for technical rounds.</p>
+   <div class="stack"><span>LangGraph</span><span>Gemini API</span><span>Multi-agent</span><span>Code sandbox</span></div>
+  </article>
+  <article class="card proj" data-t="rag genai">
+   <div class="top"><span class="mono">RESEARCH</span><span>Co-author</span></div>
+   <h3>TA-RAG</h3>
+   <p>Confidence-calibrated, statement-level verification for hallucination-resilient regulatory knowledge systems. Co-authored research paper.</p>
+   <div class="stack"><span>RAG</span><span>Hallucination detection</span><span>Calibration</span></div>
+  </article>
+  <article class="card proj" data-t="genai rag">
+   <div class="top"><span class="mono">2025</span><span>2nd Prize</span></div>
+   <h3>StartupSarthi</h3>
+   <p>Generative-AI solution for real-world startup problems. Won 2nd prize at the IndiaAI Impact GenAI Hackathon.</p>
+   <div class="stack"><span>Generative AI</span><span>LLMs</span></div>
+  </article>
+  <article class="card proj" data-t="ml">
+   <div class="top"><span class="mono">CAPSTONE</span><span>Industry partner</span></div>
+   <h3>Festival-Aware Dairy Demand Forecasting</h3>
+   <p>Forecasting and decision-support system for a dairy cooperative, trained on 3 years of sales across 30+ products with Marathi festival signals.</p>
+   <button class="more">Details +</button>
+   <ul><li>Cleaned multi-sheet Excel data and converted garbled Marathi (Akruti) product names to standard English.</li><li>Festival calendar, lag features, rolling stats and seasonality feeding Prophet, SARIMAX and XGBoost.</li><li>Web dashboard for forecasts and production planning.</li></ul>
+   <div class="stack"><span>Python</span><span>Pandas</span><span>Prophet</span><span>SARIMAX</span><span>XGBoost</span></div>
+   <div class="pl"><a href="https://github.com/dnyanesshwari/Festival-Aware-Demand-forecasting" target="_blank" rel="noopener">Code ↗</a></div>
+  </article>
+  <article class="card proj" data-t="rl agents">
+   <div class="top"><span class="mono">2026</span><span>Finalist</span></div>
+   <h3>StratArena — Multi-Agent RL Environment</h3>
+   <p>Gym-style auction environment where competitive agents use theory-of-mind reasoning. Meta PyTorch OpenEnv Hackathon finalist among 31,000+ teams.</p>
+   <div class="stack"><span>Python</span><span>RL</span><span>Multi-agent</span></div>
+  </article>
+  <article class="card proj" data-t="genai">
+   <div class="top"><span class="mono">HACKATHON</span><span>Team of 4</span></div>
+   <h3>ChillBot</h3>
+   <p>Mental-health support chatbot for students: emotion-aware Gemini responses, daily planner with streaks and relaxation techniques. I built the Flask backend.</p>
+   <div class="stack"><span>Flask</span><span>Gemini</span><span>Streamlit</span></div>
+   <div class="pl"><a href="https://github.com/dnyanesshwari/RIT_Hackathon_final" target="_blank" rel="noopener">Code ↗</a></div>
+  </article>
+  <article class="card proj" data-t="genai">
+   <div class="top"><span class="mono">BUILD</span><span>LLM safety</span></div>
+   <h3>AASHA — Safety Assistant</h3>
+   <p>Women’s-safety assistant with authenticated FastAPI backend, persistent history and prompt-engineered LLM responses.</p>
+   <div class="stack"><span>FastAPI</span><span>SQLite</span><span>LLMs</span></div>
+  </article>
+ </div>
+</div></section>
+
+<section id="path"><div class="wrap rv">
+ <div class="eyebrow">04 · Path</div><h2>Experience &amp; recognition.</h2>
+ <div class="tl">
+  <div class="ti"><b>Software Development Intern — Krushna Dudh Sangh, Islampur</b><small>Industry experience</small><p>Built a Vehicle Route &amp; Timetable Optimization System (Python, Pandas, Streamlit) with automated PDF timetables, cutting manual effort by 70%.</p></div>
+  <div class="ti"><b>Finalist — Meta PyTorch OpenEnv Hackathon × Scaler School of Technology</b><small>2026</small><p>Top 800 of 31,000+ registered teams for a multi-agent reinforcement-learning environment.</p></div>
+  <div class="ti"><b>2nd Prize — IndiaAI Impact GenAI Hackathon</b><small>2025</small><p>StartupSarthi, a generative-AI solution for startup problems.</p></div>
+  <div class="ti"><b>Co-author — TA-RAG</b><small>Research</small><p>Confidence-calibrated statement-level verification for hallucination-resilient regulatory knowledge systems.</p></div>
+ </div>
+</div></section>
+
+<section id="contact"><div class="wrap rv">
+ <div class="card cta">
+  <div class="eyebrow">05 · Contact</div>
+  <h2>Building with LLMs? Let’s talk.</h2>
+  <p style="color:var(--mut);max-width:520px;margin:0 auto 22px">Open to GenAI / Python engineering internships and full-time roles starting 2027.</p>
+  <div class="btns" style="justify-content:center">
+   <a class="btn p" href="mailto:dnyaneshwaripawar79@gmail.com">Email me</a>
+   <button class="btn" id="cp">Copy email</button>
+   <a class="btn" href="https://www.linkedin.com/in/dnyaneshwari-pawar-2986742b8" target="_blank" rel="noopener">LinkedIn ↗</a>
+   <a class="btn" href="https://github.com/dnyanesshwari" target="_blank" rel="noopener">GitHub ↗</a>
+  </div>
+ </div>
+</div></section>
+</main>
+<footer>© 2026 Dnyaneshwari Pawar · Satara, Maharashtra</footer>
+
+<script>
+(function(){
+var r=document.documentElement;
+try{var s=localStorage.getItem('theme');if(s)r.setAttribute('data-theme',s)}catch(e){}
+document.getElementById('tg').onclick=function(){
+ var dark=r.getAttribute('data-theme')?r.getAttribute('data-theme')==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+ var n=dark?'light':'dark';r.setAttribute('data-theme',n);try{localStorage.setItem('theme',n)}catch(e){}
+};
+/* typing */
+var roles=['GenAI Engineer','RAG & LangGraph builder','Python / FastAPI developer','Applied ML researcher'],ri=0,ci=0,del=false,ty=document.getElementById('ty');
+(function tick(){var w=roles[ri];ty.textContent=w.slice(0,ci);
+ if(!del&&ci===w.length){del=true;return setTimeout(tick,1500)}
+ if(del&&ci===0){del=false;ri=(ri+1)%roles.length}
+ ci+=del?-1:1;setTimeout(tick,del?35:70)})();
+/* agent router demo (illustrative) */
+function emi(P,rate,y){var r=rate/1200,n=y*12;return P*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1)}
+var inr=function(x){return '₹'+Math.round(x).toLocaleString('en-IN')};
+var E=emi(500000,8,5);
+var demos=[
+ [['input','"Calculate the EMI for ₹5,00,000 at 8% for 5 years"'],['route','calculator (deterministic)'],['tool','emi(P=500000, rate=8, years=5)'],['result','EMI = '+inr(E)+' / month'],['llm','not used for arithmetic']],
+ [['input','"What are the KYC rules for opening an account?"'],['route','rag (regulation retrieval)'],['tool','retrieve(top_k=5)'],['result','answer + source snippets'],['llm','synthesizes only from retrieved text']],
+ [['input','"EMI for ₹5L at 8% for 5y, and what does RBI say about prepayment?"'],['route','calculator → rag → synthesize'],['tool','emi(...) then retrieve(...)'],['result','EMI = '+inr(E)+' + cited policy passage'],['llm','merges both into one answer']]
+];
+var out=document.getElementById('out');
+function show(i){out.innerHTML='';demos[i].forEach(function(l,j){var d=document.createElement('div');d.style.animationDelay=(j*0.18)+'s';d.innerHTML='<span class="k">'+l[0]+'</span> → <span class="v"></span>';d.querySelector('.v').textContent=l[1];out.appendChild(d)});
+ var n=document.createElement('div');n.style.animationDelay='1.1s';n.style.color='var(--mut)';n.textContent='# illustrative routing demo, same idea as FinanceAI';out.appendChild(n)}
+document.getElementById('chips').onclick=function(e){var b=e.target.closest('.chip');if(!b)return;
+ [].forEach.call(this.children,function(c){c.classList.remove('on')});b.classList.add('on');show(+b.dataset.q)};
+show(0);
+/* filters + details */
+document.getElementById('filters').onclick=function(e){var b=e.target.closest('.chip');if(!b)return;
+ [].forEach.call(this.children,function(c){c.classList.remove('on')});b.classList.add('on');
+ [].forEach.call(document.querySelectorAll('.proj'),function(p){p.classList.toggle('hide',b.dataset.f!=='all'&&p.dataset.t.split(' ').indexOf(b.dataset.f)<0)})};
+[].forEach.call(document.querySelectorAll('.more'),function(m){m.onclick=function(){var p=m.closest('.proj');p.classList.toggle('open');m.textContent=p.classList.contains('open')?'Less −':'Details +'}});
+/* reveal + counters */
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;e.target.classList.add('in');
+ var b=e.target.querySelector('[data-n]');if(b&&!b.done){b.done=1;var t=+b.dataset.n,s=b.dataset.s||'',st=performance.now();
+ (function f(now){var p=Math.min(1,(now-st)/1100);b.textContent=Math.round(t*(1-Math.pow(1-p,3))).toLocaleString('en-IN')+(p===1?s:'');if(p<1)requestAnimationFrame(f)})(st)}
+ io.unobserve(e.target)})},{threshold:.15});
+[].forEach.call(document.querySelectorAll('.rv'),function(x){io.observe(x)});
+/* copy */
+document.getElementById('cp').onclick=function(){var b=this;try{navigator.clipboard.writeText('dnyaneshwaripawar79@gmail.com').then(function(){b.textContent='Copied ✓'})}catch(e){b.textContent='dnyaneshwaripawar79@gmail.com'}setTimeout(function(){b.textContent='Copy email'},2000)};
+})();
+</script>
+</body>
+</html>
